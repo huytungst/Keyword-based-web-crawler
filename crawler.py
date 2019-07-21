@@ -1,5 +1,6 @@
 from googlesearch import search
 import urllib.request
+import urllib.error
 from urllib.request import Request, urlopen
 from inscriptis import get_text
 import ssl
@@ -19,9 +20,13 @@ with open("TEXT.txt", "w") as f:
       result = url+'\n'+text+'\n************************************\n'
       f.write(allresults.join(result))
       print (url +'\n Done.')
-    except urllib.request.HTTPError and UnicodeEncodeError: 
+    except urllib.request.HTTPError:
       print (url+'\n HTTP Error. Can not open this link.')
+    except urllib.error.HTTPError:
+      print (url+'\n HTTP Error. Can not open this link.')
+    except UnicodeEncodeError:
+      print (url+'\n ENCODE Error. Can not open this link.')
 print ('\nEND OF SCRAPING. DOWNLOAD THE TEXT FILE FOR THE RESULTS.')
 
 from google.colab import files
-files.download('TEXT.txt') 
+files.download('TEXT.txt')
