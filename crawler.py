@@ -19,7 +19,7 @@ with open("TEXT.txt", "w") as f:
       result = url+'\n'+text+'\n************************************\n'
       f.write(allresults.join(result))
       print (url +'\n Done.')
-    except urllib.request.HTTPError: 
+    except urllib.request.HTTPError and UnicodeEncodeError: 
       print (url+'\n HTTP Error. Can not open this link.')
 print ('\nEND OF SCRAPING. DOWNLOAD THE TEXT FILE FOR THE RESULTS.')
 
