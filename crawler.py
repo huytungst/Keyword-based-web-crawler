@@ -26,7 +26,7 @@ with open("TEXT.txt", "w") as f:
       print (url+'\n HTTP Error. Can not open this link.')
     except UnicodeEncodeError:
       print (url+'\n ENCODE Error. Can not open this link.')
+    except ValueError:
+      print (url + '\n VALUE Error. Can not open this link.')
+      
 print ('\nEND OF SCRAPING. DOWNLOAD THE TEXT FILE FOR THE RESULTS.')
-
-from google.colab import files
-files.download('TEXT.txt')
